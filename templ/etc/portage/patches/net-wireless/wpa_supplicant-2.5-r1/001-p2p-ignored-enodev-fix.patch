@@ -1,0 +1,23 @@
+DRIVER_NL80211: Fail to initialize driver if linux_iface_up returns ENODEV
+
+It solves p2p-dev- zombie interface problem
+
+Signed-off-by: Bartlomiej Puget <larhard@gmail.com>
+---
+
+--- a/src/drivers/driver_nl80211.c
++++ b/src/drivers/driver_nl80211.c
+@@ -1674,7 +1674,12 @@ static void * wpa_driver_nl80211_drv_init(void *ctx, const char *ifname,
+ 		os_free(rcfg);
+ 	}
+ 
+-	if (linux_iface_up(drv->global->ioctl_sock, ifname) > 0)
++	int result;
++
++	result = linux_iface_up(drv->global->ioctl_sock, ifname);
++	if (result == -ENODEV)
++		goto failed;
++	if (result > 0)
+ 		drv->start_iface_up = 1;
+ 
+ 	if (wpa_driver_nl80211_finish_drv_init(drv, set_addr, 1, driver_params))

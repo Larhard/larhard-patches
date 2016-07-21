@@ -1,0 +1,14 @@
+--- b/watcher.py
++++ a/watcher.py
+@@ -9,7 +9,10 @@ logger = logging.getLogger('watcher')
+ 
+ 
+ def decode_header(header):
+-    return ''.join((k[0] if isinstance(k[0], str) else bytes.decode(k[0], k[1] or 'ascii')) for k in email.header.decode_header(header))
++    try:
++        return ''.join((k[0] if isinstance(k[0], str) else bytes.decode(k[0], k[1] or 'ascii')) for k in email.header.decode_header(header))
++    except LookupError:
++        return ''
+ 
+ 
+ class MailEventHandler(pyinotify.ProcessEvent):

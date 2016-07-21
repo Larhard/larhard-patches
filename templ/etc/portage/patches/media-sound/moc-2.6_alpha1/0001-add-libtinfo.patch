@@ -1,0 +1,11 @@
+--- a/configure
++++ b/configure
+@@ -25663,6 +25663,8 @@
+ Usually this means the macro was only invoked conditionally." "$LINENO" 5
+ fi
+ 
++LIBS="-ltinfo $LIBS"
++
+ : ${CONFIG_STATUS=./config.status}
+ ac_write_fail=0
+ ac_clean_files_save=$ac_clean_files

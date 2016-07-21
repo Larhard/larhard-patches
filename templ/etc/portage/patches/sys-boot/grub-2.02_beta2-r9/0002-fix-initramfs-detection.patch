@@ -1,0 +1,26 @@
+diff -ur a/util/grub.d/10_linux.in b/util/grub.d/10_linux.in
+--- a/util/grub.d/10_linux.in	2016-07-08 15:45:13.810000000 +0200
++++ b/util/grub.d/10_linux.in	2016-07-08 15:47:35.300000000 +0200
+@@ -182,6 +182,7 @@
+   rel_dirname=`make_system_path_relative_to_its_root $dirname`
+   version=`echo $basename | sed -e "s,^[^0-9]*-,,g"`
+   alt_version=`echo $version | sed -e "s,\.old$,,g"`
++  tag=`echo $basename | sed -e "s,^[^0-9]*-\([^0-9-]*\)-.*$,\1,g"`
+   linux_root_device_thisversion="${LINUX_ROOT_DEVICE}"
+ 
+   initrd=
+@@ -189,10 +190,10 @@
+ 	   "initrd-${version}" "initramfs-${version}.img" \
+ 	   "initrd.img-${alt_version}" "initrd-${alt_version}.img" \
+ 	   "initrd-${alt_version}" "initramfs-${alt_version}.img" \
+-	   "initramfs-genkernel-${version}" \
+-	   "initramfs-genkernel-${alt_version}" \
+-	   "initramfs-genkernel-${GENKERNEL_ARCH}-${version}" \
+-	   "initramfs-genkernel-${GENKERNEL_ARCH}-${alt_version}"; do
++	   "initramfs-${tag}-${version}" \
++	   "initramfs-${tag}-${alt_version}" \
++	   "initramfs-${tag}-${GENKERNEL_ARCH}-${version}" \
++	   "initramfs-${tag}-${GENKERNEL_ARCH}-${alt_version}"; do
+     if test -e "${dirname}/${i}" ; then
+       initrd="$i"
+       break
