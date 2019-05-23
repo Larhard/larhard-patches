@@ -1,0 +1,24 @@
+From d7970743b93a76453b88581d1c407a27e6656cb5 Mon Sep 17 00:00:00 2001
+From: Bartlomiej Puget <larhard@gmail.com>
+Date: Thu, 23 May 2019 23:02:59 +0200
+Subject: [PATCH] Enable shift+insert paste
+
+---
+ config.def.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/config.def.h b/config.def.h
+index 235b73c..a5ef610 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -182,6 +182,7 @@ static Shortcut shortcuts[] = {
+ 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
+ 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
+ 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
++	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+ 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+ 	{ TERMMOD,              XK_I,           iso14755,       {.i =  0} },
+ 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+-- 
+2.21.0
+
