@@ -1,0 +1,25 @@
+From 4a611fc4aeb8906f9a158208247ac36fbcfb268c Mon Sep 17 00:00:00 2001
+From: Bartlomiej Puget <larhard@gmail.com>
+Date: Thu, 23 May 2019 22:26:41 +0200
+Subject: [PATCH 2/2] Make delete work
+
+---
+ config.def.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config.def.h b/config.def.h
+index 12a30ee..b5c77e6 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -334,7 +334,7 @@ static Key key[] = {
+ 	{ XK_Delete,        ControlMask,    "\033[3;5~",    +1,    0},
+ 	{ XK_Delete,        ShiftMask,      "\033[2K",      -1,    0},
+ 	{ XK_Delete,        ShiftMask,      "\033[3;2~",    +1,    0},
+-	{ XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0},
++	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      -1,    0},
+ 	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
+ 	{ XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
+ 	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
+-- 
+2.21.0
+
