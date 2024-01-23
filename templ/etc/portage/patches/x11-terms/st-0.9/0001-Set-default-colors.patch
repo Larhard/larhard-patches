@@ -1,0 +1,30 @@
+From ea298b8089f84ceb4bc8399064aceeb7e38b11eb Mon Sep 17 00:00:00 2001
+From: Bartlomiej Puget <larhard@gmail.com>
+Date: Tue, 23 Jan 2024 23:13:27 +0100
+Subject: [PATCH] Set default colors
+
+---
+ config.def.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/config.def.h b/config.def.h
+index 91ab8ca..a76d58a 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -129,10 +129,10 @@ static const char *colorname[] = {
+  * Default colors (colorname index)
+  * foreground, background, cursor, reverse cursor
+  */
+-unsigned int defaultfg = 258;
++unsigned int defaultfg = 2;
+ unsigned int defaultbg = 259;
+-unsigned int defaultcs = 256;
+-static unsigned int defaultrcs = 257;
++unsigned int defaultcs = 2;
++static unsigned int defaultrcs = 2;
+ 
+ /*
+  * Default shape of cursor
+-- 
+2.43.0
+
